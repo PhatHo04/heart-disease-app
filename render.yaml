@@ -2,7 +2,7 @@ services:
   - type: web
     name: Du-doan-benh-tim
     env: python
-    pythonVersion: 3.11
+    pythonVersion: 3.12
     region: singapore
     plan: free
     buildCommand: pip install -r requirements.txt
