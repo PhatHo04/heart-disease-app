@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dự đoán bệnh tim</title>
+    <style>
+        body { font-family: Arial; background: #f2f2f2; padding: 30px; }
+        form { background: white; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto; }
+        input { width: 100%; padding: 8px; margin: 10px 0; }
+        button { padding: 10px 20px; }
+        h2 { color: #2f4f4f; }
+        .result { font-weight: bold; font-size: 18px; color: #b22222; }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <h2>Nhập thông tin bệnh nhân</h2>
+        {% for field in ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal'] %}
+            <label>{{ field }}</label>
+            <input name="{{ field }}" required>
+        {% endfor %}
+        <button type="submit">Dự đoán</button>
+        {% if prediction %}
+            <p class="result">{{ prediction }}</p>
+        {% endif %}
+    </form>
+</body>
+</html>
